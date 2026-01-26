@@ -1,0 +1,32 @@
+[project]
+name = "solar-segmentation-smp"
+version = "1.1.0"
+description = "Solar Segmentation SSL with Multi-Arch Support"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "gradio",
+    "matplotlib>=3.10.8",
+    "numpy",
+    "pandas",
+    "tabulate",
+    "opencv-python",
+    "pillow",
+    "segment-anything @ git+https://github.com/facebookresearch/segment-anything.git",
+    "torch",
+    "torchvision",
+    "tqdm",
+    "segmentation-models-pytorch" # Added dependency
+]
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }
+
+[tool.uv]
+index-strategy = "unsafe-best-match"
